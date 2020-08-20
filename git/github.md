@@ -26,6 +26,13 @@ Initialized empty Git repository in C:/Users/i/Desktop/TIL/.git/
 작업한 내용을 커밋 대상 목록에 추가한다.
 
 ```bash
+$ git add .			# 현재 디렉토리(하위 디렉토리 포함)
+$ git add a.html	# 특정 파일
+$ git add b.html c.html	# 특정 다수 파일
+$ git add blog/			# 특정 폴더
+```
+
+```bash
 # 작업 후 상태
 $ git status
 On branch master
@@ -96,6 +103,48 @@ $ git log --oneline -1
 ```
 
 ```bash
-
+$ git status
+On branch master
+# WD (Working Directory) X
+# Staging area X	
+nothing to commit, working tree clean
 ```
 
+# Git 원격 저장소 활용
+
+Git 원격 저장소 기능을 제공 해주는 서비스는 `gitlab, bitbucket, github`등이 있다.
+
+# 0. 원격 저장소 설정
+
+```bash
+$ git remote and origin {url}
+$ git remote and origin https://github.com/ericj1234/TIL.git
+```
+
+* git, 원격저장소를 추가(`add`)하고 `origin`이라는 이름으로 `url`으로 설정
+* 설정된 저장소를 확인하기 위해서는 아래의 명령어를 사용한다.
+
+```bash
+$ git remote -v
+origin  https://github.com/ericj1234/TIL.git (fetch)
+origin  https://github.com/ericj1234/TIL.git (push)
+```
+
+# 원격 저장소에 push
+
+```bash
+$ git push origin master
+Enumerating objects: 11, done.
+Counting objects: 100% (11/11), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (9/9), done.
+Writing objects: 100% (11/11), 31.55 KiB | 10.52 MiB/s, done.
+Total 11 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/ericj1234/TIL.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+```
+
+
+
+ 
